@@ -86,11 +86,11 @@ function stopRecording() {
 
 	gumStream.getAudioTracks()[0].stop();
 
-  rec.exportWAV(createDownloadLink);
+  rec.exportWAV(createLink);
   //console.log(rec);
 }
 
-function createDownloadLink(blob) {
+function createLink(blob) {
 	
 	var url = URL.createObjectURL(blob);
   AudioNode.src = url;
@@ -117,9 +117,14 @@ const toBase64 = f => new Promise((resolve, reject) => {
 	'use strict'
   var URL = window.URL || window.webkitURL
   var playSelectedFile = function (event) {
+    var AudioNode = document.querySelector('audio')
     globalThis.file = this.files[0]
     var type = file.type
-    var AudioNode = document.querySelector('audio')
+    if (type != "audio/wav") {
+      button.disabled = true;
+      type="";
+      alert("You must select a Wav file as audio source");
+    }
     var canPlay = AudioNode.canPlayType(type)
     if (canPlay === '') canPlay = 'no'
     var message = 'File Loaded'
@@ -127,6 +132,7 @@ const toBase64 = f => new Promise((resolve, reject) => {
     //console.log("message",message, "Error",isError);
 
     if (isError) {
+      AudioNode.src='';
       return
     }
 
