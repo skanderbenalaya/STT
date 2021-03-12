@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Demo</title>
+    <link rel="stylesheet" href="static/css/stt_style.css" />
+    <link rel="icon" href="favicon.ico" />
+  </head>
+  <body>
+    <img src="static/img/logo_icompass_black.svg" alt="iCompass" />
+    <h1>Speech-To-Text Demo by iCompass</h1>
+    <p>Select your audio file and press transcribe to write down its content</p>
+
+    <form>
+      <div class="inputs">
+        <input
+          id="audiofile"
+          class="audioinput"
+          type="file"
+          accept="audio/*"
+        />
+        <button id="recordButton" class="rec" type="button">Record</button>
+      </div>
+      <button id="button" class="bubbly-button" type="submit" disabled="true">
+        Transcribe
+      </button>
+      <div class="container-audio">
+        <audio controls id="myAudio"></audio>
+        <ol id="recordingsList"></ol>
+      </div>
+      <div class="form__group field">
+        <textarea
+          type="text"
+          autocomplete="off"
+          class="txt"
+          placeholder="name"
+          name="name"
+          id="transcription"
+          readonly
+        >
+&#x200F;
+        </textarea>
+        <label for="name" class="form__label">Transcription</label>
+      </div>
+    </form>
+    <script src="https://cdn.rawgit.com/mattdiamond/Recorderjs/08e7abd9/dist/recorder.js"></script>
+    <script src="static/js/stt_script.js"></script>
+  </body>
+</html>
+
+<!-- <form>
+    <div class="form__group field">
+      <input
+        type="text"
+        autocomplete="off"
+        class="txt"
+        placeholder="name"
+        name="name"
+        id="name"
+        required="required"
+      />
+      <button id=button class="bubbly-button" type="submit">Synthesize</button>
+      <label for="name" class="form__label">Text</label>
+      <input id="audio-file" type="file" accept="audio/*"/>
+      <div id="message"></div>
+    </div>
+    
+  </form> -->

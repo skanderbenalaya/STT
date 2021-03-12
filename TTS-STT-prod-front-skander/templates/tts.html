@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Demo</title>
+    <link rel="stylesheet" href="static/css/tts_style.css" />
+    <link rel="icon" href="static/img/favicon.ico">
+  </head>
+  <body>
+    <img src = "static/img/logo_icompass_white.svg" alt="iCompass"/>
+    <h1>Text-To-Speech Demo by iCompass</h1>
+    <p>Write some text in tunisian dialect and press "Speak text"</p>
+  <form>
+    <div class="form__group field">
+      <input
+        type="text"
+        autocomplete="off"
+        class="txt"
+        placeholder="name"
+        name="name"
+        id="name"
+        required="required"
+      />
+      <button id=button class="bubbly-button" type="submit">Speak text</button>
+      <label for="name" class="form__label">Text</label>
+    </div>
+    
+  </form>
+  <div class="container-audio">
+    <audio controls  autoplay >
+               <source id="my-audio" src="" type="audio/ogg">
+               Your browser dose not Support the audio Tag
+           </audio>
+</div>
+    <script src="static/js/tts_script.js"></script>
+  </body>
+</html>
