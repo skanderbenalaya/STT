@@ -234,10 +234,10 @@ body {
   position: absolute;
   width: 35vw;
   height: 5vh;
-  padding: 0px;
-  border-radius: 30px;
-  background-color: rgb(0, 0, 0);
-  color: #000;
+  padding: 0;
+  border-radius: 0;
+  background-color: #4f7f67;
+  color: #4f7f67;
   margin: 20px auto;
   overflow: hidden;
   top: 44vh;
