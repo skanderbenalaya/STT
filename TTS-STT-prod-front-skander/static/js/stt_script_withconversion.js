@@ -178,15 +178,6 @@ function make_download(abuffer, total_samples) {
   // Generate audio file and assign URL
   var new_file = URL.createObjectURL(blobi);
   AudioNode.src = new_file;
-  // Make it downloadable
-  var name = "compressed.wav";
-  var a = document.createElement("a");
-  document.body.appendChild(a);
-  a.style.display = "none";
-  a.href = new_file;
-  a.download = name;
-  a.click();
-  setTimeout(() => window.URL.revokeObjectURL(new_file), 1000);
   async function MainFile() {
     Base64 = await toBase64(blobi);
   }
