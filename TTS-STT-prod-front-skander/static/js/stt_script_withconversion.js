@@ -171,17 +171,28 @@ function make_download(abuffer, total_samples) {
 
   console.log("abuffer");
   console.log(abuffer);
+  console.log("duration",abuffer.duration)
   var blobi = bufferToWave(abuffer, total_samples);
-
   console.log("blobi");
   console.log(blobi);
   // Generate audio file and assign URL
   var new_file = URL.createObjectURL(blobi);
   AudioNode.src = new_file;
-  async function MainFile() {
-    Base64 = await toBase64(blobi);
+  var time_limit;
+  time_limit=abuffer.duration;
+  console.log("time_limit", time_limit);
+  if (time_limit < 5) {
+    async function MainFile() {
+      Base64 = await toBase64(blobi);
+    }
+    button.disabled = false;
+    MainFile();
+    
+  } else {
+    alert("Audio file duration must be 5 minutes or less");
+    button.disabled = true;
+    AudioNode.src = "";
   }
-  MainFile();
 }
 
 // ---------------------------------- New Record Function ----------------------------------------------------
@@ -248,7 +259,7 @@ function stopRecording() {
 function createLink(blob) {
   const audioBlob = blob;
   var buf = resample(audioBlob);
-  button.disabled = false;
+  
 }
 
 //---------------------------------- Base64 file selection conversion  ----------------------------------------------------
@@ -286,9 +297,7 @@ const toBase64 = (f) =>
 
     const audioBlob = file;
     var buf = resample(audioBlob);
-    button.disabled = false;
 
-    
   };
   var inputNode = document.querySelector("input");
   inputNode.addEventListener("change", playSelectedFile, false);
