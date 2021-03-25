@@ -1,73 +1,139 @@
 * {
-  box-sizing: border-box;
-
+  padding: 0;
+  margin: 0;
 }
-img {
+
+body {
+  height: 1080px;
+  background: linear-gradient(-180deg, #f2ebdbff 45%, #4f7f67ff 45%);
+}
+.logo-icompass {
   position: absolute;
-  width: 13%;
+  width: 200px;
   height: auto;
-  top: 5%;
-  left: 3%;
+  top: 30px;
+  left: 30px;
 }
 
+@media only screen and (max-width: 767px) {
+  .logo-icompass {
+    max-width: 130px;
+    top: 15px;
+    left: 15px;
+  }
+}
+
+div.info {
+  position: relative;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  padding-top: 130px;
+}
 h1 {
-  position: absolute;
+  /* position: absolute; */
   color: #354462ff;
   font-family: "Lato", sans-serif;
   font-size: 50px;
   font-weight: 300;
-  line-height: 120%;
-  margin: 0 0 58px;
-  top: 16%;
   text-align: center;
-  vertical-align: middle;
+  margin-bottom: 0px;
+  /* width: 100%; */
+
+  /* line-height: 120%; */
+  /* margin: 0 0 58px;
+  top: 16%;
+  
+  vertical-align: middle; */
 }
 
-@media only screen and (max-width: 720px) {
-
-  h1 { 
-     font-size: 30px; 
+@media only screen and (max-width: 767px) {
+  h1 {
+    font-size: 25px;
   }
-  p { 
-    font-size: 12px; 
- }
-
 }
+
 p {
-  position: absolute;
+  /* position: absolute; */
   color: rgb(111, 129, 167);
   font-family: "Lucida Sans", Arial, sans-serif;
   font-size: 20px;
-  line-height: 150%;
+  text-align: center;
+  /* line-height: 150%;
   margin: 0;
   top: 29%;
+
+  vertical-align: middle; */
+}
+
+@media only screen and (max-width: 767px) {
+  p {
+    font-size: 13px;
+  }
+}
+span {
+  position: relative;
+  color: rgb(34, 37, 44);
+  font-family: "Lucida Sans", Arial, sans-serif;
+  font-size: 15px;
+  line-height: 150%;
+  margin: 0;
   text-align: center;
   vertical-align: middle;
+  overflow: hidden;
+  white-space: nowrap;
 }
+
+@media only screen and (max-width: 767px) {
+  p {
+    font-size: 13px;
+  }
+}
+
 .form__group {
-  position: absolute;
+  position: relative;
   display: inline;
   padding: 15px 0 0;
-  top: 60vh;
-  left: 26.2vw;
+  width: 800px;
+  height: 280px;
+  top: -8vh;
 }
-form { 
-  margin: 0 auto; 
-  width:46vw;
-  text-align: center;
+@media only screen and (max-width: 767px) {
+  .form__group {
+    top: -0vh;
+    width: 84vw;
+    height: 280px;
   }
+}
+
+@media only screen and (min-width: 768px) and (max-width: 1023px) {
+    .form__group {
+      top: -10vh;
+      width: 79vw;
+      height: 280px;
+    }
+}
+
+form {
+  align-items: center;
+  margin: 0 auto;
+  margin-top: 65px;
+  width: 46vw;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+}
 .txt {
   font-family: inherit;
-  width: 50vw;
-  height: 26vh;
+  width: inherit;
+  height: inherit;
   border: 1px solid #9b9b9b;
   outline: 0;
   font-size: 1.3rem;
   color: #fff;
-  padding: 7px 0;
   background: transparent;
   transition: border-color 0.2s;
-  padding-bottom: 6px;
   font-weight: 700;
   border-width: 3px;
   border-image: linear-gradient(to right, #a9a192ff, #a9a192ff);
@@ -79,15 +145,15 @@ form {
 }
 
 .form__label {
-  position: absolute;
-  top: -3%;
+  position: relative;
+  /* top: -3%; */
   display: block;
+  text-align: start;
   transition: 0.2s;
   font-size: 1rem;
   color: #a9a192ff;
   font-family: "Lato", sans-serif;
   font-weight: 700;
-  
 }
 
 /* reset input */
@@ -96,25 +162,7 @@ form {
   box-shadow: none;
 }
 
-
 /* demo */
-body {
-  font-family: "Poppins", sans-serif;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  min-height: 100vh;
-  font-size: 1.5rem;
-  background: linear-gradient(-180deg, #f2ebdbff 40%, #4f7f67ff 30%);
-}
-html,
-body {
-  margin: 0;
-  height: 100%;
-  overflow: hidden;
-  
-}
 
 /* #audiofile:invalid + #button {
   background-color: rgb(160, 157, 152);
@@ -122,8 +170,8 @@ body {
 } */
 
 .bubbly-button {
-  font-family: "Helvetica", "Arial", sans-serif;
-  font-size: 0.75em;
+  font-family: "Poppins", sans-serif;
+  font-size: 19px;
   -webkit-appearance: none;
   appearance: none;
   background-color: #f3dbabff;
@@ -131,12 +179,16 @@ body {
   border-radius: 4px;
   border: none;
   cursor: pointer;
-  position: relative;
+  margin: 10px;
   transition: transform ease-in 0.1s, box-shadow ease-in 0.25s;
-  width: auto;
-  height: 47px;
-  top: -9.8vh;
-  left: 22vw;
+  width: 100px;
+  height: 45px;
+}
+
+@media only screen and (max-width: 767px) {
+  .bubbly-button {
+    align-self: center;
+  }
 }
 
 .bubbly-button:focus {
@@ -231,39 +283,109 @@ body {
 }
 
 .container-audio {
-  position: absolute;
-  width: 35vw;
-  height: 5vh;
+  position: relative;
+  width: 400px;
+  height: 40px;
   padding: 0;
   border-radius: 0;
-  background-color: #4f7f67;
+  background-color: #4e816800;
   color: #4f7f67;
-  margin: 20px auto;
+  margin: 13px auto;
   overflow: hidden;
-  top: 44vh;
-  left: 32.5vw;
+  /* top: 44vh; */
+  /* left: 32.5vw; */
   align-items: center;
   white-space: nowrap;
-  
-  
 }
+
+@media only screen and (max-width: 767px) {
+  .container-audio {
+    width: 300px;
+  }
+}
+
 audio {
   width: inherit;
   height: inherit;
-
 }
 
-.audioinput{
+.audioinput {
   width: 11.7vw;
 }
 
-.rec{
-  margin-left:4vw; 
-  width: 4.7vw;
-}
-.inputs{
-  position: absolute;
+.inputs {
+  position: relative;
   display: flex;
-  top: 37vh;
-  left: 39vw;
+  margin-top: 45px;
+  /* padding-left: 30px;   */
+  /* top: 37.7vh; */
+  /* left: 39.8vw; */
+}
+
+
+
+.audioinput {
+  cursor: pointer;
+  color: #4f7f67;
+  font-weight: bold;
+}
+.audioinput:hover {
+  color: #4f7f67;
+}
+
+.recspan {
+  color: #4f7f67;
+  font-weight: bold;
+  padding-bottom: 260px;
+}
+@media only screen and (max-width: 767px) {
+  .recspan {
+    font-size: smaller;
+  }
+}
+
+.iconeupload > input {
+  display: none;
+}
+
+.upfile {
+  cursor: pointer;
+  width: 38px;
+}
+
+@media only screen and (max-width: 767px) {
+  .upfile {
+    width: 24px;
+  }
+}
+
+.rec > input {
+  display: none;
+}
+
+.rec {
+  background: transparent;
+  border: 0px;
+  padding: 0;
+  cursor: pointer;
+}
+.rec:focus {
+  outline: 0;
+}
+
+.iconeupload {
+  padding-right: 20px;
+}
+
+.audiobutton {
+  display: flex;
+  position: absolute;
+  top: 450px;
+  flex-direction: row;
+}
+
+@media only screen and (max-width: 767px) {
+  .audiobutton {
+    flex-direction: column;
+  }
 }

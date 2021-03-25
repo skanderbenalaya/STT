@@ -46,7 +46,6 @@ function startRecording() {
     recording = 0;
   } else {
     recording = 1;
-    //console.log("recordButton clicked");
     recordButton.value = "1";
     recordButton.innerHTML = "Stop";
 
@@ -55,7 +54,6 @@ function startRecording() {
     navigator.mediaDevices
       .getUserMedia(constraints)
       .then(function (stream) {
-        //console.log("getUserMedia() success, stream created, initializing Recorder.js ...");
 
         audioContext = new AudioContext({ sampleRate: 16000 });
 
@@ -67,7 +65,6 @@ function startRecording() {
 
         rec.record();
 
-        //console.log("Recording started");
       })
       .catch(function (err) {
         recordButton.disabled = false;
@@ -78,14 +75,13 @@ function startRecording() {
 function stopRecording() {
   //console.log("stop Recording");
   recordButton.value = "0";
-  recordButton.innerHTML = "Record";
+  recordButton.innerHTML = '<img class="upfile" src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZlcnNpb249IjEuMSIgeG1sbnM6eGxpbms9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsiIHhtbG5zOnN2Z2pzPSJodHRwOi8vc3ZnanMuY29tL3N2Z2pzIiB3aWR0aD0iNTEyIiBoZWlnaHQ9IjUxMiIgeD0iMCIgeT0iMCIgdmlld0JveD0iMCAwIDUxMiA1MTIiIHN0eWxlPSJlbmFibGUtYmFja2dyb3VuZDpuZXcgMCAwIDUxMiA1MTIiIHhtbDpzcGFjZT0icHJlc2VydmUiIGNsYXNzPSIiPjxnPgo8ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPgoJPGc+CgkJPHBhdGggZD0iTTI1NiwwYy00OS40NTYsMC04OS42OTMsNDAuMjM3LTg5LjY5Myw4OS42OTN2MTc2LjI3OWMwLDQ5LjQ1LDQwLjIzNyw4OS42ODcsODkuNjkzLDg5LjY4NyAgICBjNDkuNDU2LDAsODkuNjkzLTM5Ljk1Nyw4OS42OTMtODkuMDcxVjg5LjY5M0MzNDUuNjkzLDQwLjIzNywzMDUuNDU2LDAsMjU2LDB6IE0zMDguMzE1LDI2Ni41ODMgICAgYzAsMjguNTAzLTIzLjQ3LDUxLjY5OC01Mi4zMTUsNTEuNjk4cy01Mi4zMjEtMjMuNDY0LTUyLjMyMS01Mi4zMTVWODkuNjkzYzAtMjguODUxLDIzLjQ3LTUyLjMyMSw1Mi4zMjEtNTIuMzIxICAgIHM1Mi4zMjEsMjMuNDcsNTIuMzE1LDUyLjMyMVYyNjYuNTgzeiIgZmlsbD0iIzM1NDQ2MiIgZGF0YS1vcmlnaW5hbD0iIzAwMDAwMCIgc3R5bGU9IiIgY2xhc3M9IiI+PC9wYXRoPgoJPC9nPgo8L2c+CjxnIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+Cgk8Zz4KCQk8cmVjdCB4PSIyMzcuMzE0IiB5PSI0MDkuMjI2IiB3aWR0aD0iMzcuMzcyIiBoZWlnaHQ9Ijg0LjA4OCIgZmlsbD0iIzM1NDQ2MiIgZGF0YS1vcmlnaW5hbD0iIzAwMDAwMCIgc3R5bGU9IiIgY2xhc3M9IiI+PC9yZWN0PgoJPC9nPgo8L2c+CjxnIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+Cgk8Zz4KCQk8cGF0aCBkPSJNMzA1LjIwNyw0NzQuNjI4aC05OC40MTRjLTEwLjMyMSwwLTE4LjY4Niw4LjM2NS0xOC42ODYsMTguNjg2YzAsMTAuMzIxLDguMzY1LDE4LjY4NiwxOC42ODYsMTguNjg2aDk4LjQxNCAgICBjMTAuMzIxLDAsMTguNjg2LTguMzY1LDE4LjY4Ni0xOC42ODZDMzIzLjg5Myw0ODIuOTkzLDMxNS41MjgsNDc0LjYyOCwzMDUuMjA3LDQ3NC42Mjh6IiBmaWxsPSIjMzU0NDYyIiBkYXRhLW9yaWdpbmFsPSIjMDAwMDAwIiBzdHlsZT0iIiBjbGFzcz0iIj48L3BhdGg+Cgk8L2c+CjwvZz4KPGcgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KCTxnPgoJCTxwYXRoIGQ9Ik0zOTcuMzkyLDIzNC44MjJjLTEwLjMyMSwwLTE4LjY4Niw4LjM2NS0xOC42ODYsMTguNjg2djE0Ljk0OWMwLDY3LjY1Ni01NS4wNDksMTIyLjcwNi0xMjIuNzA2LDEyMi43MDYgICAgYy02Ny42NjIsMC0xMjIuNzA2LTU1LjA0OS0xMjIuNzA2LTEyMi43MDZ2LTE0Ljk0OWMwLTEwLjMyMS04LjM2NS0xOC42ODYtMTguNjg2LTE4LjY4NnMtMTguNjg2LDguMzY1LTE4LjY4NiwxOC42ODZ2MTQuOTQ5ICAgIGMwLDg4LjI2Nyw3MS44MTEsMTYwLjA3OCwxNjAuMDc4LDE2MC4wNzhzMTYwLjA3OC03MS44MTEsMTYwLjA3OC0xNjAuMDc4di0xNC45NDkgICAgQzQxNi4wNzgsMjQzLjE4OCw0MDcuNzEzLDIzNC44MjIsMzk3LjM5MiwyMzQuODIyeiIgZmlsbD0iIzM1NDQ2MiIgZGF0YS1vcmlnaW5hbD0iIzAwMDAwMCIgc3R5bGU9IiIgY2xhc3M9IiI+PC9wYXRoPgoJPC9nPgo8L2c+CjxnIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjwvZz4KPGcgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPC9nPgo8ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPgo8L2c+CjxnIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjwvZz4KPGcgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPC9nPgo8ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPgo8L2c+CjxnIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjwvZz4KPGcgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPC9nPgo8ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPgo8L2c+CjxnIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjwvZz4KPGcgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPC9nPgo8ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPgo8L2c+CjxnIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjwvZz4KPGcgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPC9nPgo8ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPgo8L2c+CjwvZz48L3N2Zz4=" />';
 
   rec.stop();
 
   gumStream.getAudioTracks()[0].stop();
 
   rec.exportWAV(createLink);
-  //console.log(rec);
 }
 
 function createLink(blob) {
@@ -93,7 +89,7 @@ function createLink(blob) {
   AudioNode.src = url;
   AudioNode.onloadedmetadata = function () {
     console.log(AudioNode.duration);
-    if (AudioNode.duration < 5) {
+    if (AudioNode.duration < 301) {
       async function MainFile() {
         Base64 = await toBase64(file);
       }
@@ -132,7 +128,6 @@ const toBase64 = (f) =>
     if (canPlay === "") canPlay = "no";
     var message = "File Loaded";
     var isError = canPlay === "no";
-    //console.log("message",message, "Error",isError);
 
     if (isError) {
       AudioNode.src = "";
@@ -141,9 +136,6 @@ const toBase64 = (f) =>
 
     var fileURL = URL.createObjectURL(file);
     AudioNode.src = fileURL;
-    // var time_limit;
-    // time_limit = AudioNode.duration;
-    // console.log("time_limit", time_limit);
     AudioNode.onloadedmetadata = function () {
       console.log(AudioNode.duration);
       if (AudioNode.duration < 5) {
@@ -172,11 +164,11 @@ function sendJSON(message) {
   xhr.open("POST", url, true);
   // Set the request header i.e. which type of content you are sending
   xhr.setRequestHeader("Content-Type", "application/json");
-  xhr.setRequestHeader( 'Access-Control-Allow-Origin', '*');
-    // Converting JSON data to string
-    var data = JSON.stringify({ message: message, sender: "username" });
-    // Sending data with the request
-    xhr.send(data);
+  xhr.setRequestHeader('Access-Control-Allow-Origin', '*');
+  // Converting JSON data to string
+  var data = JSON.stringify({ message: message, sender: "username" });
+  // Sending data with the request
+  xhr.send(data);
   // Create a state change callback
   xhr.onreadystatechange = function () {
     if (xhr.readyState === 4 && xhr.status === 200) {
@@ -186,7 +178,7 @@ function sendJSON(message) {
       var data_response = output["transcript"];
       var text_response = new String(data_response);
       var input = document.querySelector('textarea');
-      input.value = text_response; 
+      input.value = text_response;
       //console.log(text_response);
     }
   };
